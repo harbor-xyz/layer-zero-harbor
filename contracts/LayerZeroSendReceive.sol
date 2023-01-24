@@ -50,22 +50,4 @@ contract LayerZeroSendReceive is ILayerZeroReceiver {
         messageCount += 1;
         emit ReceiveMsg(_srcChainId, from, messageCount, message);
     }
-
-    // Endpoint.sol estimateFees() returns the fees for the message
-    function estimateFees(
-        uint16 _dstChainId,
-        address _userApplication,
-        bytes calldata _payload,
-        bool _payInZRO,
-        bytes calldata _adapterParams
-    ) external view returns (uint256 nativeFee, uint256 zroFee) {
-        return
-            endpoint.estimateFees(
-                _dstChainId,
-                _userApplication,
-                _payload,
-                _payInZRO,
-                _adapterParams
-            );
-    }
 }
