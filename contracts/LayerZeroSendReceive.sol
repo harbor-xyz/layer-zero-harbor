@@ -6,12 +6,6 @@ import "../interfaces/ILayerZeroEndpoint.sol";
 import "../interfaces/ILayerZeroReceiver.sol";
 
 contract LayerZeroSendReceive is ILayerZeroReceiver {
-    event ReceiveMsg(
-        uint16 _srcChainId,
-        address _from,
-        uint16 _count,
-        bytes _payload
-    );
     ILayerZeroEndpoint public endpoint;
     uint16 public messageCount = 0;
     bytes public message;
@@ -48,6 +42,5 @@ contract LayerZeroSendReceive is ILayerZeroReceiver {
         }
         message = _payload;
         messageCount += 1;
-        emit ReceiveMsg(_srcChainId, from, messageCount, message);
     }
 }

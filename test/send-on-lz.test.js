@@ -1,9 +1,8 @@
-const Harbor = require("@harbor-xyz/harbor");
 const hre = require("hardhat");
 const { ethers } = require("ethers");
 const { expect } = require("chai");
 
-describe.only("Layer zero test", () => {
+describe("Layer zero test", () => {
   let messageToSend;
   let sendReceiveMumbai;
   let sendReceiveGoerli;
@@ -12,10 +11,14 @@ describe.only("Layer zero test", () => {
       "LayerZeroSendReceive"
     );
     // Add your Mumbai contract here
-    sendReceiveMumbai = LayerZeroSendReceive.attach("");
+    sendReceiveMumbai = LayerZeroSendReceive.attach(
+      ""
+    );
 
     // Add your Goerli contract address here
-    sendReceiveGoerli = LayerZeroSendReceive.attach("");
+    sendReceiveGoerli = LayerZeroSendReceive.attach(
+      ""
+    );
 
     // Default message. Change it if you'd like!
     messageToSend = "Hey Mumbai! It's me, Goerli.";
@@ -27,8 +30,10 @@ describe.only("Layer zero test", () => {
       ethers.utils.solidityPack(
         ["address", "address"],
         [
-          "0xC3459067800465db3cf78c884637Aa39E3D9d1CB",
-          "0xE6056c9cB984eCd47b7ccCEd0eacfDd94A426F23",
+          // remote contract address (mumbai) goes here
+          "",
+          // local contract address (goerli) goes here
+          "",
         ]
       ),
       ethers.utils.formatBytes32String(messageToSend),
