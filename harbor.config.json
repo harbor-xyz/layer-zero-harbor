@@ -1,0 +1,15 @@
+{
+    "chains": [
+        {
+            "chain": "ethereum",
+            "config": {
+                "artifactsPath": "./artifacts",
+                "deploy": {
+                    "scripts": "./deploy"
+                }
+            },
+            "wallets": [],
+            "tag": "v1"
+        }
+    ]
+}
